@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: reactive
+  flyway:
+    locations: classpath:db/mysql/migrations
+    url: jdbc:mysql://localhost:3306/java_spring
+    user: root
+    password: Mysql@254
+    validate-on-migrate: true
+    baseline-on-migrate: true
+  r2dbc:
+    url: r2dbc:mysql://localhost:3306/java_spring
+    username: root
+    password: Mysql@254
+
+

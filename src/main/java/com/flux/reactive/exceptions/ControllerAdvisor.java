@@ -10,21 +10,21 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @RestControllerAdvice
 public class ControllerAdvisor {
 
-    @ExceptionHandler(IllegalArgumentException.class)
+    @ExceptionHandler(ActorNotFoundException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public Map<String,String> handleIllegalArgumentException(IllegalArgumentException exception){
-        Map<String,String> map = new HashMap<>();
+    public Map<String,Object> handleActorNotFoundException(ActorNotFoundException exception){
+        Map<String,Object> map = new HashMap<>();
         map.put("message", exception.getMessage());
-        map.put("success", String.valueOf(false));
+        map.put("success", false);
         return map;
     }
 
     @ExceptionHandler(Exception.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-    public Map<String,String> handleException(Exception exception){
-        Map<String,String> map = new HashMap<>();
+    public Map<String,Object> handleException(Exception exception){
+        Map<String,Object> map = new HashMap<>();
         map.put("message", exception.getMessage());
-        map.put("success", String.valueOf(false));
+        map.put("success", false);
         return map;
     }
 }

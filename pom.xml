@@ -21,6 +21,13 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/io.asyncer/r2dbc-mysql -->
+		<dependency>
+			<groupId>io.asyncer</groupId>
+			<artifactId>r2dbc-mysql</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-r2dbc</artifactId>
@@ -71,6 +78,10 @@
 			<groupId>io.projectreactor</groupId>
 			<artifactId>reactor-test</artifactId>
 			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jdbc</artifactId>
 		</dependency>
 	</dependencies>
 

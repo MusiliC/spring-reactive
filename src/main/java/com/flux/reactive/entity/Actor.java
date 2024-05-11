@@ -1,6 +1,7 @@
 package com.flux.reactive.entity;
 
 
+import java.time.LocalDateTime;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
@@ -10,16 +11,16 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Table(value = "tbl_users")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class User {
+@Table(value = "actor")
+public class Actor {
 
     @Id
-    @Column(value = "user_id")
-    private Integer userId;
+    @Column(value = "actor_id")
+    private Integer actorId;
 
     @Column(value = "first_name")
     private String firstName;
@@ -27,6 +28,7 @@ public class User {
     @Column(value = "last_name")
     private String lastName;
 
-    @Column(value = "username")
-    private String username;
+    @Column(value = "last_update")
+    private LocalDateTime lastUpdate;
+
 }

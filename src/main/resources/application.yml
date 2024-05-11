@@ -3,13 +3,14 @@ spring:
     name: reactive
   flyway:
     locations: classpath:db/mysql/migrations
-    url: jdbc:mysql://localhost:3306/java_spring
+    url: jdbc:mysql://localhost:3306/sakila
     user: root
     password: Mysql@254
     validate-on-migrate: true
     baseline-on-migrate: true
+    schemas: sakila
   r2dbc:
-    url: r2dbc:mysql://localhost:3306/java_spring
+    url: r2dbc:mysql://localhost:3306/sakila
     username: root
     password: Mysql@254
 

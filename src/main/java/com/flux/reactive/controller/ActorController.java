@@ -34,8 +34,8 @@ public class ActorController {
     }
 
     @GetMapping("/all")
-    public Mono<Page<Actor>> getActorsPaginated(@RequestParam(required = false, defaultValue = "0") Integer pageNumber,
-                                                @RequestParam(required = false, defaultValue = "10") Integer pageSize) {
+    public Mono<Page<Actor>> getActorsPaginated(@RequestParam(value = "pageNumber", defaultValue = "0") Integer pageNumber,
+                                                @RequestParam(value = "pageSize", defaultValue = "10") Integer pageSize) {
         return actorService.findActorsPaginated(PageRequest.of(pageNumber, pageSize));
     }
 

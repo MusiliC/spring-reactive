@@ -36,7 +36,7 @@ public class Film {
     @Column(value = "original_language_id")
     private Integer originalLanguageId;
 
-    @Column(value = "rent_duration")
+    @Column(value = "rental_duration")
     private double rentalDuration;
 
     @Column(value = "rental_rate")

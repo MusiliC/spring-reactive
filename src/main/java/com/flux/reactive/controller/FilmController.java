@@ -30,8 +30,8 @@ public class FilmController {
     }
 
     @GetMapping("/all")
-    public Mono<Page<Film>> getFilmsPaginated(@RequestParam(value = "pageNumber",required = false, defaultValue = "0") Integer pageNumber,
-                                                @RequestParam(value = "pageSize", required = false, defaultValue = "10") Integer pageSize) {
+    public Mono<Page<Film>> getFilmsPaginated(@RequestParam(value = "pageNumber", defaultValue = "0") Integer pageNumber,
+                                                @RequestParam(value = "pageSize",  defaultValue = "10") Integer pageSize) {
         return filmService.getFilmsPage(PageRequest.of(pageNumber, pageSize));
     }
 }

@@ -3,6 +3,7 @@ package com.flux.reactive.controller;
 
 import com.flux.reactive.entity.Actor;
 import com.flux.reactive.entity.Film;
+import com.flux.reactive.model.FilmDto;
 import com.flux.reactive.service.FilmService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -33,5 +34,11 @@ public class FilmController {
     public Mono<Page<Film>> getFilmsPaginated(@RequestParam(value = "pageNumber", defaultValue = "0") Integer pageNumber,
                                                 @RequestParam(value = "pageSize",  defaultValue = "10") Integer pageSize) {
         return filmService.getFilmsPage(PageRequest.of(pageNumber, pageSize));
+    }
+
+    @GetMapping("/mini")
+    public Mono<Page<FilmDto>> getFilmsDto(@RequestParam(value = "pageNumber", defaultValue = "0") Integer pageNumber,
+                                           @RequestParam(value = "pageSize",  defaultValue = "10") Integer pageSize) {
+        return filmService.getFilmsDto(PageRequest.of(pageNumber, pageSize));
     }
 }

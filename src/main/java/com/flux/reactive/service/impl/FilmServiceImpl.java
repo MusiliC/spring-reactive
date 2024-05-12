@@ -2,6 +2,7 @@ package com.flux.reactive.service.impl;
 
 import com.flux.reactive.entity.Film;
 import com.flux.reactive.entity.Language;
+import com.flux.reactive.model.FilmDto;
 import com.flux.reactive.repository.FilmRepository;
 import com.flux.reactive.repository.LanguageRepository;
 import com.flux.reactive.service.FilmService;
@@ -53,5 +54,13 @@ public class FilmServiceImpl implements FilmService {
                     Page<Film> page = new PageImpl<>(filmList, pageRequest, totalCount);
                     return Mono.just(page);
                 });
+    }
+
+    @Override
+    public Mono<Page<FilmDto>> getFilmsDto(PageRequest pageRequest) {
+        return filmRepository.findAllBy(pageRequest.getPageSize(), pageRequest.getOffset())
+                .collectList()
+                .zipWith(filmRepository.count())
+                .map(t -> new PageImpl<>(t.getT1(), pageRequest, t.getT2()));
     }
 }

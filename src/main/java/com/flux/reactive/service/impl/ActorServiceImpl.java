@@ -40,4 +40,9 @@ public class ActorServiceImpl implements ActorService {
                 .zipWith(actorRepository.count())
                 .map(t -> new PageImpl<>(t.getT1(), pageRequest, t.getT2()));
     }
+
+    @Override
+    public Mono<Actor> createActor(Actor actor) {
+        return actorRepository.save(actor);
+    }
 }
